@@ -24,12 +24,12 @@ def process_current(current: ET.Element) -> tuple[str, str, str, ET.Element]:
 
 
 def calc_aqi_level(concentration, intervals) -> str:
+    conc = float(concentration)
     for interval_level, interval_max in intervals:
-        conc = float(concentration)
-
-        if concentration <= str(interval_max):
+        if conc <= interval_max:
             return interval_level
-    return 7
+        
+    return -1
 
 
 def air_quality_summary(air_quality: ET.Element) -> str:
