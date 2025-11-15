@@ -17,3 +17,7 @@ def test_so2_level_calculation():
 def test_co_level_calculation():
     concentration = "684.85"
     intervals = AQI_INTERVALS["co"]
+    
+    expected_level = 1
+    calculated_level = calc_aqi_level(concentration, intervals)
+    assert calculated_level == expected_level
